@@ -4,13 +4,23 @@ interface Contact {
     email: string;
 }
 
-Input = document.getElementById("name") as HTMLInputElement;
+const nameInput = document.getElementById("name") as HTMLInputElement;
 const phoneInput = document.getElementById("phone") as HTMLInputElement;
 const emailInput = document.getElementById("email") as HTMLInputElement;
 const addContactButton = document.getElementById("addContact") as HTMLButtonElement;
 const contactList = document.getElementById("contactList") as HTMLUListElement;
 
 let contacts: Contact[] = [];
+
+function isValidPhone(phone : string):boolean{
+    const phoneRegex = /^\+?\d{1,4}?[-.\s]?\(?\d{2,4}\)?[-.\s]?\d{3,4}[-.\s]?\d{3,4}$/;
+    return phoneRegex.test(phone);
+}
+
+function isValidemail(email : string):boolean{
+    const phoneRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return phoneRegex.test(email);
+}
 
 // Function to add a contact
 function addContact(): void {
@@ -23,6 +33,17 @@ function addContact(): void {
         alert("Please fill in all fields!");
         return;
     }
+
+    if(!isValidPhone(phone)){
+        alert("Please enter a valid phone number");
+        return;
+    }
+
+    if(!isValidPhone(email)){
+        alert("Please enter a valid email");
+        return;
+    }
+
 
     // Add contact to the array
     const newContact: Contact = { name, phone, email };
