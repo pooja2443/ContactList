@@ -40,4 +40,11 @@ input {
   justify-content: center;
   margin-top: 20px;
   margin-left: 300px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  background-color: rgb(74, 74, 184);
+  color:white;
+  border: none;
 }
